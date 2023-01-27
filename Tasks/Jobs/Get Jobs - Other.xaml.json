@@ -1,0 +1,46 @@
+{
+  "DisplayName": "Get Jobs - Other",
+  "Tooltip": "This activity returns all Jobs from a specific folder that are not marked Successful or Faulted.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Jobs---Other",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "in_Folder",
+      "DisplayName": "in_Folder",
+      "Category": null,
+      "Tooltip": "Location of Jobs",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "in_Filter",
+      "DisplayName": "in_Filter",
+      "Category": null,
+      "Tooltip": "OData filter string used as a query parameter. See OData 4 APIs for reference on how to build a filter. Automatically appends \"(State in ('Successful','Faulted') eq false)\" to filter string.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "out_Jobs",
+      "DisplayName": "out_Jobs",
+      "Category": null,
+      "Tooltip": "Collection of Jobs returned by API call as array of JobDto.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "in_StartTime",
+      "DisplayName": "in_StartTime",
+      "Category": null,
+      "Tooltip": "Filters jobs by start date and time. Appended to filter.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

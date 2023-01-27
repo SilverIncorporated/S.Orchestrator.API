@@ -1,0 +1,37 @@
+{
+  "DisplayName": "Link Queues to Folders",
+  "Tooltip": "This activity links/unlinks queues in the specified folders.\r\n\r\n",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Link-Queue-to-Folders",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Queues",
+      "DisplayName": "Queues",
+      "Category": null,
+      "Tooltip": "Queues that will be linked/unlinked",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "ToRemoveFolders",
+      "DisplayName": "ToRemoveFolders",
+      "Category": null,
+      "Tooltip": "Folders for the Queues to be unlinked from. Set to empty array to not link any",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "ToAddFolders",
+      "DisplayName": "ToAddFolders",
+      "Category": null,
+      "Tooltip": "Folders for the Queues to be linked to. Set to empty array to not link any",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

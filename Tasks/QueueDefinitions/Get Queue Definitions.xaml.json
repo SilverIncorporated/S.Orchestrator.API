@@ -1,0 +1,37 @@
+{
+  "DisplayName": "Get Queue Definitions",
+  "Tooltip": "This activity gets all Queue Definitions from the specified folder. If no folder is provided, then it returns all Queues for the folder the current process is running in.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Queue-Definitions",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Filter",
+      "DisplayName": "Filter",
+      "Category": null,
+      "Tooltip": "OData filter string used as a query parameter. See OData 4 APIs for reference on how to build a filter.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "QueueDefinitions",
+      "DisplayName": "QueueDefinitions",
+      "Category": null,
+      "Tooltip": "Array of QueueDefinitionDto’s returned by API.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for Queues. If not specified, uses the current folder that the process is running within.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

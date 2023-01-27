@@ -1,0 +1,46 @@
+{
+  "DisplayName": "Create Bucket",
+  "Tooltip": "This activity creates a new bucket in the specified folder. If no folder is provided, then it creates one in the current folder.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Create-Bucket",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for buckets. If not specified, uses the current folder that the process is running within.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "BucketName",
+      "DisplayName": "BucketName",
+      "Category": null,
+      "Tooltip": "Name for the bucket to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Bucket",
+      "DisplayName": "Bucket",
+      "Category": null,
+      "Tooltip": "Bucket created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "BucketDescription",
+      "DisplayName": "BucketDescription",
+      "Category": null,
+      "Tooltip": "Description for the bucket to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

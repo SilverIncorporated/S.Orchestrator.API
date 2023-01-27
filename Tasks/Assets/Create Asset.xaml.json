@@ -1,0 +1,100 @@
+{
+  "DisplayName": "Create Asset",
+  "Tooltip": "Makes a POST request to the Assets endpoint to create a new Asset.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Create-Asset",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder where the Asset should be created.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "AssetName",
+      "DisplayName": "AssetName",
+      "Category": null,
+      "Tooltip": "Name for the Asset to be created.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Asset",
+      "DisplayName": "Asset",
+      "Category": null,
+      "Tooltip": "Asset created.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "AssetDescription",
+      "DisplayName": "AssetDescription",
+      "Category": null,
+      "Tooltip": "Description for the Asset to be created.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "AssetValueType",
+      "DisplayName": "AssetValueType",
+      "Category": null,
+      "Tooltip": "AssetDtoValueType of the Asset to be created.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "StringValue",
+      "DisplayName": "StringValue",
+      "Category": null,
+      "Tooltip": "The text value of the Asset to be created, if it is a text Asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "BoolValue",
+      "DisplayName": "BoolValue",
+      "Category": null,
+      "Tooltip": "The boolean value of the Asset to be created, if it is a boolean Asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "IntValue",
+      "DisplayName": "IntValue",
+      "Category": null,
+      "Tooltip": "The integer value of the Asset to be created, if it is an integer Asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "CredentialUsername",
+      "DisplayName": "CredentialUsername",
+      "Category": null,
+      "Tooltip": "The username value of the Asset to be created, if it is a credential Asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "CredentialPassword",
+      "DisplayName": "CredentialPassword",
+      "Category": null,
+      "Tooltip": "The password value of the Asset to be created, if it is a credential Asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

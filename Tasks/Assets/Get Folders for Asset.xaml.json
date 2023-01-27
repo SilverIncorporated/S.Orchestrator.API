@@ -1,0 +1,28 @@
+{
+  "DisplayName": "Get Folders for Asset",
+  "Tooltip": "Makes a GET request to the Assets endpoint and returns all the Folders where the Asset is linked.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Folders-for-Asset",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Asset",
+      "DisplayName": "Asset",
+      "Category": null,
+      "Tooltip": "The Asset for which we wish to find all the linked Folders.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folders",
+      "DisplayName": "Folders",
+      "Category": null,
+      "Tooltip": "All the Folders where the Asset is linked.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

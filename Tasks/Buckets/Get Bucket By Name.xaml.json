@@ -1,0 +1,37 @@
+{
+  "DisplayName": "Get Bucket By Name",
+  "Tooltip": "This activity gets all buckets from the specified folder. If no folder is provided, then it returns all buckets for the folder the current process is running in.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Bucket-By-Name",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "BucketName",
+      "DisplayName": "BucketName",
+      "Category": null,
+      "Tooltip": "Bucket name to search for in specified folder",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for buckets. If not specified, uses the current folder that the process is running within.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Bucket",
+      "DisplayName": "Bucket",
+      "Category": null,
+      "Tooltip": "Single bucket returned from API",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

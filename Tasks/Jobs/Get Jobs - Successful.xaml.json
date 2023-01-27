@@ -1,0 +1,46 @@
+{
+  "DisplayName": "Get Jobs",
+  "Tooltip": "This activity returns all Jobs from a specific folder that are marked Successful.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Jobs---Successful",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Location of Jobs",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Filter",
+      "DisplayName": "Filter",
+      "Category": null,
+      "Tooltip": "OData filter string used as a query parameter. See OData 4 APIs for reference on how to build a filter. Automatically appends \"State eq 'Successful'\" to filter string. ",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Jobs",
+      "DisplayName": "Jobs",
+      "Category": null,
+      "Tooltip": "Collection of Jobs returned by API call as array of JobDto.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "StartTime",
+      "DisplayName": "StartTime",
+      "Category": null,
+      "Tooltip": "Filters jobs by start date and time. Appended to filter.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "DisplayName": "Create Queue",
+  "Tooltip": "this activity creates a new queue in the specified folder. If no folder is provided, then it creates one in the current folder.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Create-Queue",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for queues. If not specified, uses the current folder that the process is running within.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Queue",
+      "DisplayName": "Queue",
+      "Category": null,
+      "Tooltip": "Queue created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Encrypted",
+      "DisplayName": "Encrypted",
+      "Category": null,
+      "Tooltip": "Set to True if you want the Queue to encrypt all Queue Items. Default is False.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "QueueName",
+      "DisplayName": "QueueName",
+      "Category": null,
+      "Tooltip": "Name for the Queue to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "QueueDescription",
+      "DisplayName": "QueueDescription",
+      "Category": null,
+      "Tooltip": "Description for the queue to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

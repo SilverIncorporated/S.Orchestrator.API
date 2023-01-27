@@ -1,0 +1,42 @@
+{
+  "DisplayName": "Get Releases",
+  "Tooltip": "This activity gets all releases in current orchestrator folder, or in the folder specified",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Releases",
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Filter",
+      "DisplayName": "Filter",
+      "Category": null,
+      "Tooltip": "OData filter string used as a query parameter. See  for reference on how to build a filter.",
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    },
+    {
+      "Name": "Releases",
+      "DisplayName": "Releases",
+      "Category": null,
+      "Tooltip": "Array of ReleaseDto’s returned by API.",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder that contains the releases",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    }
+  ]
+}

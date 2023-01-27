@@ -1,0 +1,128 @@
+{
+  "name": "S.Orchestrator.API",
+  "description": "Orchestrator API Wrapper for all orchestrator api functions",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "UiPath.System.Activities": "22.10.4",
+    "UiPath.Testing.Activities": "22.12.0-preview"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "22.4.6.0",
+  "projectVersion": "1.0.1",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": [
+        "Actions/Create Entity.xaml",
+        "Actions/Check Response.xaml",
+        "Actions/Get Entity.xaml",
+        "Actions/Edit Entity.xaml",
+        "Actions/Delete Entity.xaml",
+        "Actions/Get Entity Paginated.xaml",
+        "Actions/Add Queries.xaml",
+        "Tasks/Releases/Create Release.xaml",
+        "Tasks/Releases/Delete Release.xaml",
+        "Tasks/Releases/Edit Release.xaml",
+        "Tasks/Folders/Edit Folder.xaml"
+      ]
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "f6ea8beb-0879-4403-a7fa-9b4b98fd7128",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Buckets\\TestCase - Buckets.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "c2a8e819-04be-44df-b4c4-d1a3898740c9",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\QueueDefinitions\\Link Queues to Folder - TestCase.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "d71c1403-0dea-4d49-996e-fcc5a693b422",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\QueueDefinitions\\TestCase - QueueDefinitions.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "64cd1053-959a-4917-8e77-b623ac7cd59f",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Folders\\TestCase - Folders.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "b1339f0e-05df-493d-ac1d-d3b0b2293dca",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Jobs\\Test Case - Get Jobs - Other.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "f42074b6-0357-42df-93ea-5a03579a4587",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Jobs\\TestCase - Get Jobs - Faulted.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "f0dacea2-87e4-4896-b0b5-ebf1d624f09a",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Jobs\\TestCase - Get Jobs Successful.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "8b4af18d-49b7-46ef-9a01-c5175ef712a7",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\QueueItems\\TestCase - Get Queue Items.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "a6d995b2-3c0b-49fd-be40-a909823c3787",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Processes\\TestCase - Processes.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "89617d17-2725-430f-9852-9e68898de5cb",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Assets\\TestCase - Assets.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "ee1370bc-db58-4b4e-a136-c3fd9e52bc12",
+        "testCaseType": "TestCase",
+        "fileName": "Tasks\\Releases\\TestCase - Releases.xaml"
+      }
+    ],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "CSharp",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Portable"
+}

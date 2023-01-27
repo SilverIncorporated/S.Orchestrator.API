@@ -1,0 +1,37 @@
+{
+  "DisplayName": "Edit Folder",
+  "Tooltip": "This activity edits a folder in Orchestrator",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Edit-Folder",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "New description for the folder to be edited.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewFolderName",
+      "DisplayName": "NewFolderName",
+      "Category": null,
+      "Tooltip": "New name for the folder to be edited.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewFolderDescription",
+      "DisplayName": "NewFolderDescription",
+      "Category": null,
+      "Tooltip": "Folder edited. Reflects changes on the returned field. You can change any fields in this object before sending to be updated and it will change those values. The new arguments above will override any changes to the object.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

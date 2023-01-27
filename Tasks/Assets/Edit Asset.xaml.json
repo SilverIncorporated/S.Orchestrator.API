@@ -1,0 +1,73 @@
+{
+  "DisplayName": "Edit Asset",
+  "Tooltip": "Makes a PUT request to the Assets endpoint to edit an existing Asset.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Edit-Asset",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for assets.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Asset",
+      "DisplayName": "Asset",
+      "Category": null,
+      "Tooltip": "The Asset to be edited.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewStringValue",
+      "DisplayName": "NewStringValue",
+      "Category": null,
+      "Tooltip": "The new String value, if it is a Text asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewBoolValue",
+      "DisplayName": "NewBoolValue",
+      "Category": null,
+      "Tooltip": "The new Boolean value, if it is a Boolean asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewCredentialUsername",
+      "DisplayName": "NewCredentialUsername",
+      "Category": null,
+      "Tooltip": "The new Username value, if it is a Credential asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewCredentialPassword",
+      "DisplayName": "NewCredentialPassword",
+      "Category": null,
+      "Tooltip": "The new Password value, if it is a Credential asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewIntegerValue",
+      "DisplayName": "NewIntegerValue",
+      "Category": null,
+      "Tooltip": "The new Integer value, if it is a Integer asset.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

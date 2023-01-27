@@ -1,0 +1,19 @@
+{
+  "DisplayName": "Delete Asset",
+  "Tooltip": "Makes a DELETE request to the Assets endpoint to delete an existing Asset.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Delete-Asset",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Asset",
+      "DisplayName": "Asset",
+      "Category": null,
+      "Tooltip": "The asset to be deleted.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

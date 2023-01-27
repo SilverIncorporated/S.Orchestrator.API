@@ -1,0 +1,46 @@
+{
+  "DisplayName": "Create Folder",
+  "Tooltip": "This activity creates a new folder inside a specified folder in Orchestrator. If no folder is specified, the new folder will be created at the top level in Orchestrator",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Create-Folder",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "FolderDescription",
+      "DisplayName": "FolderDescription",
+      "Category": null,
+      "Tooltip": "Description for the folder to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "FolderName",
+      "DisplayName": "FolderName",
+      "Category": null,
+      "Tooltip": "Name for the folder to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "ParentFolder",
+      "DisplayName": "ParentFolder",
+      "Category": null,
+      "Tooltip": "The destination folder in which the new folder will be created. If not specified, the new folder will be created at the top level in Orchestrator.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

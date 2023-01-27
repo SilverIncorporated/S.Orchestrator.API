@@ -1,0 +1,75 @@
+{
+  "DisplayName": "Create Release",
+  "Tooltip": "this activity creates a new queue in the specified folder. If no folder is provided, then it creates one in the current folder.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Create-Queue",
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "ReleaseName",
+      "DisplayName": "ReleaseName",
+      "Category": null,
+      "Tooltip": "Name for the Release to be created",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "ReleaseDescription",
+      "DisplayName": "ReleaseDescription",
+      "Category": null,
+      "Tooltip": "Description for the release to be created",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": true,
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "Release",
+      "DisplayName": "Release",
+      "Category": null,
+      "Tooltip": "Created Release",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder that contains the releases",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "Process",
+      "DisplayName": "Process",
+      "Category": null,
+      "Tooltip": "Process version to release in folder",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "ProcessEntryPoint",
+      "DisplayName": "ProcessEntryPoint",
+      "Category": null,
+      "Tooltip": "The entry point for the release. If not specified, the default for the process will be used.",
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    }
+  ]
+}

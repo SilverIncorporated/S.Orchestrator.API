@@ -1,0 +1,46 @@
+{
+  "DisplayName": "Edit Queue",
+  "Tooltip": "This activity edits an existing Queue in the specified folder. If no folder is provided, then it edits the Queue in the current folder.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Edit-Queue",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Queue",
+      "DisplayName": "Queue",
+      "Category": null,
+      "Tooltip": "Queue to be edited. Reflects changes on the returned field. You can change any fields in this object before sending to be updated and it will change those values. The New arguments above will override any changes to the object.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewQueueName",
+      "DisplayName": "NewQueueName",
+      "Category": null,
+      "Tooltip": "New name for the Queue to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "NewQueueDescription",
+      "DisplayName": "NewQueueDescription",
+      "Category": null,
+      "Tooltip": "New description for the Queue to be created",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for Queue. If not specified, uses the current folder that the process is running within.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

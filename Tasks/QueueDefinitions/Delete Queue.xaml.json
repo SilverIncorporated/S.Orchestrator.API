@@ -1,0 +1,28 @@
+{
+  "DisplayName": "Delete Queue",
+  "Tooltip": "This activity deletes a queue in the specified folder. If no folder is provided, then it deletes one in the current folder.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Delete-Queue",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "QueueDefinition",
+      "DisplayName": "QueueDefinition",
+      "Category": null,
+      "Tooltip": "Queue that will be deleted.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "Folder to search for queues. If not specified, uses the current folder that the process is running within.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

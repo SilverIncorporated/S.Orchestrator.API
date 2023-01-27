@@ -1,0 +1,37 @@
+{
+  "DisplayName": "Get Assets",
+  "Tooltip": "Makes a GET request to the Assets endpoint and returns all Assets matching the Filter.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Assets",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Filter",
+      "DisplayName": "Filter",
+      "Category": null,
+      "Tooltip": "OData filter string used as a query parameter. If you don’t provide a Filter, then you need to provide a Folder. Otherwise, you will receive ALL assets…",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folder",
+      "DisplayName": "Folder",
+      "Category": null,
+      "Tooltip": "The Folder where you want to search for the Asset. If you don’t provide a Folder, then you need to provide a Filter. Otherwise, you will receive ALL assets…",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Assets",
+      "DisplayName": "Assets",
+      "Category": null,
+      "Tooltip": "The Assets returned by the API.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

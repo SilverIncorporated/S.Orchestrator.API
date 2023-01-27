@@ -1,0 +1,64 @@
+{
+  "DisplayName": "Check Response",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "in_StatusCode",
+      "DisplayName": "in_StatusCode",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": "Number",
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    },
+    {
+      "Name": "in_Headers",
+      "DisplayName": "in_Headers",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    },
+    {
+      "Name": "in_Method",
+      "DisplayName": "in_Method",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    },
+    {
+      "Name": "in_Response",
+      "DisplayName": "in_Response",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    },
+    {
+      "Name": "in_EntityEndpoint",
+      "DisplayName": "in_EntityEndpoint",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": "TextComposer",
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": []
+    }
+  ]
+}

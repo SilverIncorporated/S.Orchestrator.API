@@ -1,0 +1,28 @@
+{
+  "DisplayName": "GetFolders",
+  "Tooltip": "This activity gets all folders from Orchestrator, according to the specified filter. If no filter is given, it returns all folders in Orchestrator",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Folders",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Filter",
+      "DisplayName": "Filter",
+      "Category": null,
+      "Tooltip": "OData filter string used as a query parameter. See OData 4 APIs for reference on how to build a filter.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Folders",
+      "DisplayName": "Folders",
+      "Category": null,
+      "Tooltip": "Folders returned by API.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

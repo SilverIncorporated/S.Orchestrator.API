@@ -1,0 +1,19 @@
+{
+  "DisplayName": "Delete Bucket",
+  "Tooltip": "This activity deletes a bucket in the specified folder. If no folder is provided, then it deletes one in the current folder.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Delete-Bucket",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Bucket",
+      "DisplayName": "Bucket",
+      "Category": null,
+      "Tooltip": "Bucket that will be deleted.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}

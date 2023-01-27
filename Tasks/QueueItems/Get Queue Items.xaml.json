@@ -1,0 +1,46 @@
+{
+  "DisplayName": "Get Queue Items",
+  "Tooltip": "Makes a GET request to the QueueItems endpoint and returns all QueueItems matching the declared statuses.",
+  "HelpLink": "https://tql-rpa.atlassian.net/wiki/spaces/RPA/pages/26739489/RPA-379+-+Orchestrator+Local+-+Library#Get-Queue-Items",
+  "Color": null,
+  "IconRelativePath": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "Queue",
+      "DisplayName": "Queue",
+      "Category": null,
+      "Tooltip": "The Queue from which Queue Items will be retrieved.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "QueueItems",
+      "DisplayName": "QueueItems",
+      "Category": null,
+      "Tooltip": "The Queue Items retrieved from the Queue.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "Statuses",
+      "DisplayName": "Statuses",
+      "Category": null,
+      "Tooltip": "An array of QueueItemDtoStatus values. This is used to filter the Queue Items returned by the activity. By default, New and InProgress statuses are included; provide your own array of values to overwrite the default.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    },
+    {
+      "Name": "StartProcessingDate",
+      "DisplayName": "StartProcessingDate",
+      "Category": null,
+      "Tooltip": "DateTime used to filter results received based on what time and date they were processed.",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true
+    }
+  ]
+}
