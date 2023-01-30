@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TestCase___Folders" this:TestCase___Folders.FolderName="TestFolder2" this:TestCase___Folders.FolderDescription="TestDescription" this:TestCase___Folders.EditName="New Test Name" this:TestCase___Folders.EditDescription="Test Edit" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="FolderName" Type="InArgument(x:String)" />
@@ -114,7 +115,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Folders workflow" sap:VirtualizedContainerService.HintSize="540.6666666666666,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Tasks\Folders\Get Folders.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Folders workflow" sap:VirtualizedContainerService.HintSize="540.6666666666666,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\Folders\\Get Folders.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="Filter">fullyQualifiedName eq 'Development/Testing'</InArgument>
           <OutArgument x:TypeArguments="ui:FolderDto[]" x:Key="Folders">
@@ -134,7 +135,7 @@
           </InArgument>
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Create Folder workflow" sap:VirtualizedContainerService.HintSize="540.6666666666666,311.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Tasks\\Folders\\Create Folder.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Create Folder workflow" sap:VirtualizedContainerService.HintSize="540.6666666666666,311.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Flows\\Folders\\Create Folder.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <OutArgument x:TypeArguments="ui:FolderDto" x:Key="Folder">
             <CSharpReference x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">CreatedFolder</CSharpReference>
@@ -177,7 +178,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Edit Folder workflow" sap:VirtualizedContainerService.HintSize="400,311.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Tasks\\Folders\\Edit Folder.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Edit Folder workflow" sap:VirtualizedContainerService.HintSize="400,311.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Flows\\Folders\\Edit Folder.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder">
                   <CSharpValue x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">FolderToEdit</CSharpValue>
@@ -193,7 +194,7 @@
           </Sequence>
         </ui:CommentOut.Body>
       </ui:CommentOut>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Folders\\Get Folders.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="540.6666666666666,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Tasks\\Folders\\Get Folders.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Folders\\Get Folders.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="540.6666666666666,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Flows\\Folders\\Get Folders.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="Filter">
             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">"fullyQualifiedName eq 'Development/Testing/" + FolderName + "'"</CSharpValue>
@@ -203,7 +204,7 @@
           </OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Delete Folder workflow" sap:VirtualizedContainerService.HintSize="540.6666666666666,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Tasks\\Folders\\Delete Folder.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Delete Folder workflow" sap:VirtualizedContainerService.HintSize="540.6666666666666,206" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Flows\\Folders\\Delete Folder.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder">
             <CSharpValue x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">Folders[0]</CSharpValue>

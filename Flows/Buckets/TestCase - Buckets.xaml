@@ -1,3 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TestCase___Create_Bucket" this:TestCase___Create_Bucket.BucketName="TestBucket" this:TestCase___Create_Bucket.BucketDescription="TestDescription" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="BucketName" Type="InArgument(x:String)" />
@@ -111,7 +112,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Create Bucket workflow" sap:VirtualizedContainerService.HintSize="400,324" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Tasks\Buckets\Create Bucket.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Create Bucket workflow" sap:VirtualizedContainerService.HintSize="400,324" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Create Bucket.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder" />
           <InArgument x:TypeArguments="x:String" x:Key="BucketName">
@@ -132,7 +133,7 @@
           </InArgument>
         </uta:VerifyExpression.Expression>
       </uta:VerifyExpression>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Bucket By Name workflow" sap:VirtualizedContainerService.HintSize="400,271.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Tasks\\Buckets\\Get Bucket By Name.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Bucket By Name workflow" sap:VirtualizedContainerService.HintSize="400,271.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Get Bucket By Name.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="BucketName">
             <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">BucketName</CSharpValue>
@@ -162,7 +163,7 @@
           </InArgument>
         </Assign.Value>
       </Assign>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Edit Bucket workflow" sap:VirtualizedContainerService.HintSize="400,376.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Tasks\\Buckets\\Edit Bucket.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Edit Bucket workflow" sap:VirtualizedContainerService.HintSize="400,376.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Edit Bucket.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InOutArgument x:TypeArguments="ui:BucketDto" x:Key="Bucket">
             <CSharpReference x:TypeArguments="ui:BucketDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">BucketToEdit</CSharpReference>
@@ -179,7 +180,7 @@
           </InArgument>
         </uta:VerifyExpression.Expression>
       </uta:VerifyExpression>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Buckets workflow" sap:VirtualizedContainerService.HintSize="400,271.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Tasks\\Buckets\\Get Buckets.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Buckets workflow" sap:VirtualizedContainerService.HintSize="400,271.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Get Buckets.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder" />
           <InArgument x:TypeArguments="x:String" x:Key="Filter" />
@@ -202,7 +203,7 @@
           </InArgument>
         </uta:VerifyExpression.Expression>
       </uta:VerifyExpression>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Delete Bucket workflow" sap:VirtualizedContainerService.HintSize="400,218.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Tasks\\Buckets\\Delete Bucket.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Delete Bucket workflow" sap:VirtualizedContainerService.HintSize="400,218.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Delete Bucket.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="ui:BucketDto" x:Key="Bucket">
             <CSharpValue x:TypeArguments="ui:BucketDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">Buckets.Where(b =&gt; b.Name == "New Name" &amp;&amp; b.Description == "New Description").ToList()[0]</CSharpValue>
