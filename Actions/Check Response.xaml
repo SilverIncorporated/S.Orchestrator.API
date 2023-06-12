@@ -11,7 +11,7 @@
   </this:Check_Response.in_Method>
   <sap2010:Annotation.AnnotationText>UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1016,641</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,920</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -73,12 +73,21 @@
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <If DisplayName="If not successful response" sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_1">
+  <If DisplayName="If not successful response" sap:VirtualizedContainerService.HintSize="484,276" sap2010:WorkflowViewState.IdRef="If_1">
     <If.Condition>
       <InArgument x:TypeArguments="x:Boolean">
-        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">!in_StatusCode.ToString().StartsWith("2")</CSharpValue>
+        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">
+          <CSharpValue.Result>
+            <OutArgument x:TypeArguments="x:Boolean" />
+          </CSharpValue.Result>!in_StatusCode.ToString().StartsWith("2")</CSharpValue>
       </InArgument>
     </If.Condition>
     <sap:WorkflowViewStateService.ViewState>
@@ -87,9 +96,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <If.Then>
-      <Throw DisplayName="Throw Failed Request Exception" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1">
+      <Throw DisplayName="Throw Failed Request Exception" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Throw_2">
         <InArgument x:TypeArguments="s:Exception">
-          <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">new System.Exception("Orchestrator Local failed to " + in_Method + " to endpoint: " + in_EntityEndpoint +".\nStatus: " + in_StatusCode.ToString() + "\nResponse: " + in_Response +"\nHeaders:\n" + string.Join("\n", in_Headers.Select(h=&gt; "" + h.Key + ":" + h.Value)))</CSharpValue>
+          <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">new System.Exception("Orchestrator Local failed to " + in_Method + " to endpoint: " + in_EntityEndpoint +".\nStatus: " + in_StatusCode.ToString() + "\nResponse: " + in_Response +"\nHeaders:\n" + string.Join("\n", in_Headers.Keys.Select(h=&gt; "" + h + ":" + in_Headers[h])))</CSharpValue>
         </InArgument>
       </Throw>
     </If.Then>
