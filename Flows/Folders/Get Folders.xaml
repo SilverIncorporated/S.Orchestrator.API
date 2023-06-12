@@ -1,7 +1,7 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Get_Folders" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="OData filter string used as a query parameter. See OData 4 APIs for reference on how to build a filter." Name="Filter" Type="InArgument(x:String)" />
-    <x:Property sap2010:Annotation.AnnotationText="Folders returned by API." Name="Folders" Type="OutArgument(ui:FolderDto[])">
+    <x:Property sap2010:Annotation.AnnotationText="Folders returned by API." Name="Folders" Type="OutArgument(scg:List(ui:FolderDto))">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
@@ -9,7 +9,7 @@
   </x:Members>
   <sap2010:Annotation.AnnotationText>UPTF000001E4eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL3RxbC1ycGEuYXRsYXNzaWFuLm5ldFwvd2lraVwvc3BhY2VzXC9SUEFcL3BhZ2VzXC8yNjczOTQ4OVwvUlBBLTM3OSstK09yY2hlc3RyYXRvcitMb2NhbCstK0xpYnJhcnkjR2V0LUZvbGRlcnMiLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiVGhpcyBhY3Rpdml0eSBnZXRzIGFsbCBmb2xkZXJzIGZyb20gT3JjaGVzdHJhdG9yLCBhY2NvcmRpbmcgdG8gdGhlIHNwZWNpZmllZCBmaWx0ZXIuIElmIG5vIGZpbHRlciBpcyBnaXZlbiwgaXQgcmV0dXJucyBhbGwgZm9sZGVycyBpbiBPcmNoZXN0cmF0b3IiLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1212,1022.4000000000001</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,1387.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -91,9 +91,11 @@
       <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This activity gets all folders from Orchestrator, according to the specified filter. If no filter is given, it returns all folders in Orchestrator" DisplayName="Get_Folders" sap:VirtualizedContainerService.HintSize="525.6,957.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity gets all folders from Orchestrator, according to the specified filter. If no filter is given, it returns all folders in Orchestrator" DisplayName="Get_Folders" sap:VirtualizedContainerService.HintSize="546,1322.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EntityEndpoint" />
       <Variable x:TypeArguments="njl:JArray" Name="JsonObject" />
@@ -109,14 +111,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"Orchestrator Local: Getting Folders..."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">EntityEndpoint</CSharpReference>
@@ -126,14 +128,14 @@
         <InArgument x:TypeArguments="x:String">/odata/Folders</InArgument>
       </Assign.Value>
     </Assign>
-    <If sap:VirtualizedContainerService.HintSize="484,248.8" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap:VirtualizedContainerService.HintSize="484,269.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Filter != null</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <Assign DisplayName="Assign Filter" sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign DisplayName="Assign Filter" sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">
               <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">Queries["$filter"]</CSharpReference>
@@ -156,7 +158,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="484,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="484,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">EntityEndpoint</CSharpValue>
@@ -170,22 +172,22 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign DisplayName="Deserialize &quot;value&quot; part of response to bucket" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Deserialize &quot;value&quot; part of response to folders" sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
-        <OutArgument x:TypeArguments="ui:FolderDto[]">
-          <CSharpReference x:TypeArguments="ui:FolderDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">Folders</CSharpReference>
+        <OutArgument x:TypeArguments="scg:List(ui:FolderDto)">
+          <CSharpReference x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">Folders</CSharpReference>
         </OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="ui:FolderDto[]">
-          <CSharpValue x:TypeArguments="ui:FolderDto[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">JsonConvert.DeserializeObject&lt;FolderDto[]&gt;(EntityJson)</CSharpValue>
+        <InArgument x:TypeArguments="scg:List(ui:FolderDto)">
+          <CSharpValue x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">JsonConvert.DeserializeObject&lt;List&lt;FolderDto&gt;&gt;(EntityJson)</CSharpValue>
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">"Orchestrator Local: " + Folders.Count().ToString() + " Folders returned."</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"Orchestrator Local: " + Folders.Count+ " Folders returned."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

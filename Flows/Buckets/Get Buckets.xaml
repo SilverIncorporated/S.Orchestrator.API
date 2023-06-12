@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Folder to search for buckets. If not specified, uses the current folder that the process is running within." Name="Folder" Type="InArgument(ui:FolderDto)" />
     <x:Property sap2010:Annotation.AnnotationText="OData filter string used as a query parameter. See RPA-446/OData 4 APIs for reference on how to build a filter." Name="Filter" Type="InArgument(x:String)" />
-    <x:Property Name="Buckets" Type="OutArgument(ui:BucketDto[])">
+    <x:Property Name="Buckets" Type="OutArgument(scg:List(ui:BucketDto))">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
@@ -10,7 +10,7 @@
   </x:Members>
   <sap2010:Annotation.AnnotationText>UPTF000001F8eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL3RxbC1ycGEuYXRsYXNzaWFuLm5ldFwvd2lraVwvc3BhY2VzXC9SUEFcL3BhZ2VzXC8yNjczOTQ4OVwvUlBBLTM3OSstK09yY2hlc3RyYXRvcitMb2NhbCstK0xpYnJhcnkjR2V0LUJ1Y2tldHMiLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjoiVGhpcyBhY3Rpdml0eSBnZXRzIGFsbCBidWNrZXRzIGZyb20gdGhlIHNwZWNpZmllZCBmb2xkZXIuIElmIG5vIGZvbGRlciBpcyBwcm92aWRlZCwgdGhlbiBpdCByZXR1cm5zIGFsbCBidWNrZXRzIGZvciB0aGUgZm9sZGVyIHRoZSBjdXJyZW50IHByb2Nlc3MgaXMgcnVubmluZyBpbi4iLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1574,1654</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,1512.6666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -47,7 +47,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="45">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="90">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
@@ -93,9 +93,12 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This activity gets all buckets from the specified folder. If no folder is provided, then it returns all buckets for the folder the current process is running in." DisplayName="Get_Buckets" sap:VirtualizedContainerService.HintSize="544.6666666666666,1589.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity gets all buckets from the specified folder. If no folder is provided, then it returns all buckets for the folder the current process is running in." DisplayName="Get_Buckets" sap:VirtualizedContainerService.HintSize="546,1448" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EntityEndpoint" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Queries">
@@ -111,14 +114,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="482.6666666666667,151.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Orchestrator Local: Getting Buckets..."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <Assign DisplayName="Set Endpoint" sap:VirtualizedContainerService.HintSize="482.6666666666667,72" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Set Endpoint" sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">EntityEndpoint</CSharpReference>
@@ -128,14 +131,14 @@
         <InArgument x:TypeArguments="x:String">/odata/Buckets</InArgument>
       </Assign.Value>
     </Assign>
-    <If sap:VirtualizedContainerService.HintSize="482.6666666666667,384" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap:VirtualizedContainerService.HintSize="484,269.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">Filter != null</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <Assign DisplayName="Assign Filter" sap:VirtualizedContainerService.HintSize="400,72" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign DisplayName="Assign Filter" sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">
               <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">Queries["$Filter"]</CSharpReference>
@@ -158,7 +161,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity workflow" sap:VirtualizedContainerService.HintSize="482.6666666666667,324.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Get Entity.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity workflow" sap:VirtualizedContainerService.HintSize="484,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Get Entity.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="ui:FolderDto" x:Key="in_Folder">
           <CSharpValue x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">Folder</CSharpValue>
@@ -174,7 +177,7 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign DisplayName="Deserialize Response to Generic Object" sap:VirtualizedContainerService.HintSize="482.6666666666667,72" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Deserialize Response to Generic Object" sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JObject">
           <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">JsonObject</CSharpReference>
@@ -186,22 +189,22 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Deserialize &quot;value&quot; part of response to bucket" sap:VirtualizedContainerService.HintSize="482.6666666666667,72" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Deserialize &quot;value&quot; part of response to bucket" sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
-        <OutArgument x:TypeArguments="ui:BucketDto[]">
-          <CSharpReference x:TypeArguments="ui:BucketDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">Buckets</CSharpReference>
+        <OutArgument x:TypeArguments="scg:List(ui:BucketDto)">
+          <CSharpReference x:TypeArguments="scg:List(ui:BucketDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">Buckets</CSharpReference>
         </OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="ui:BucketDto[]">
-          <CSharpValue x:TypeArguments="ui:BucketDto[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">JsonConvert.DeserializeObject&lt;BucketDto[]&gt;(JsonObject.GetValue("value").ToString())</CSharpValue>
+        <InArgument x:TypeArguments="scg:List(ui:BucketDto)">
+          <CSharpValue x:TypeArguments="scg:List(ui:BucketDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">JsonConvert.DeserializeObject&lt;List&lt;BucketDto&gt;&gt;(JsonObject.GetValue("value").ToString())</CSharpValue>
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="482.6666666666667,151.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">"Orchestrator Local: " + Buckets.Count().ToString() + " buckets returned."</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">"Orchestrator Local: " + Buckets.Count + " buckets returned."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>

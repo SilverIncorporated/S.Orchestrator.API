@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="Get_Bucket_By_Name" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Bucket name to search for in specified folder" Name="BucketName" Type="InArgument(x:String)" />
@@ -10,7 +9,7 @@
   </this:Get_Bucket_By_Name.Folder>
   <sap2010:Annotation.AnnotationText>UPTF00000204eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL3RxbC1ycGEuYXRsYXNzaWFuLm5ldFwvd2lraVwvc3BhY2VzXC9SUEFcL3BhZ2VzXC8yNjczOTQ4OVwvUlBBLTM3OSstK09yY2hlc3RyYXRvcitMb2NhbCstK0xpYnJhcnkjR2V0LUJ1Y2tldC1CeS1OYW1lIiwiPEluaXRpYWxUb29sdGlwPmtfX0JhY2tpbmdGaWVsZCI6IlRoaXMgYWN0aXZpdHkgZ2V0cyBhbGwgYnVja2V0cyBmcm9tIHRoZSBzcGVjaWZpZWQgZm9sZGVyLiBJZiBubyBmb2xkZXIgaXMgcHJvdmlkZWQsIHRoZW4gaXQgcmV0dXJucyBhbGwgYnVja2V0cyBmb3IgdGhlIGZvbGRlciB0aGUgY3VycmVudCBwcm9jZXNzIGlzIHJ1bm5pbmcgaW4uIiwiPFZlcnNpb24+a19fQmFja2luZ0ZpZWxkIjoxfQ==</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1016,641</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,821.3333333333334</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -42,7 +41,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
@@ -80,18 +79,25 @@
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
       <AssemblyReference>System.Security.Permissions</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This activity gets all buckets from the specified folder. If no folder is provided, then it returns all buckets for the folder the current process is running in." DisplayName="Get_Bucket_By_Name" sap:VirtualizedContainerService.HintSize="526,491" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This activity gets all buckets from the specified folder. If no folder is provided, then it returns all buckets for the folder the current process is running in." DisplayName="Get_Bucket_By_Name" sap:VirtualizedContainerService.HintSize="546,650" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="ui:BucketDto[]" Name="Buckets" />
+      <Variable x:TypeArguments="scg:List(ui:BucketDto)" Name="Buckets" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Buckets workflow" sap:VirtualizedContainerService.HintSize="484,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Get Buckets.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Buckets workflow" sap:VirtualizedContainerService.HintSize="484,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\Buckets\\Get Buckets.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder">
           <CSharpValue x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">Folder</CSharpValue>
@@ -99,27 +105,27 @@
         <InArgument x:TypeArguments="x:String" x:Key="Filter">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">"Name eq '" + BucketName + "'"</CSharpValue>
         </InArgument>
-        <OutArgument x:TypeArguments="ui:BucketDto[]" x:Key="Buckets">
-          <CSharpReference x:TypeArguments="ui:BucketDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">Buckets</CSharpReference>
+        <OutArgument x:TypeArguments="scg:List(ui:BucketDto)" x:Key="Buckets">
+          <CSharpReference x:TypeArguments="scg:List(ui:BucketDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">Buckets</CSharpReference>
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <If sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap:VirtualizedContainerService.HintSize="484,269.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
-          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Buckets.Count() &gt; 0</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">Buckets.Count &gt; 0</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:BucketDto">
-              <CSharpReference x:TypeArguments="ui:BucketDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Bucket</CSharpReference>
+              <CSharpReference x:TypeArguments="ui:BucketDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">Bucket</CSharpReference>
             </OutArgument>
           </Assign.To>
           <Assign.Value>
             <InArgument x:TypeArguments="ui:BucketDto">
-              <CSharpValue x:TypeArguments="ui:BucketDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">Buckets.First()</CSharpValue>
+              <CSharpValue x:TypeArguments="ui:BucketDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">Buckets.First()</CSharpValue>
             </InArgument>
           </Assign.Value>
         </Assign>

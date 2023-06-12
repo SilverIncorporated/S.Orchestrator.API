@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="TestCase___Releases" this:TestCase___Releases.ReleaseName="TestRelease" this:TestCase___Releases.ReleaseDescription="TestRelease" this:TestCase___Releases.NewReleaseName="TestRelease2" this:TestCase___Releases.NewReleaseDescription="TestRelease2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="ReleaseName" Type="InArgument(x:String)" />
@@ -7,7 +6,7 @@
     <x:Property Name="NewReleaseDescription" Type="InArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1574,3842.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,3084.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>TestCase___Releases_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -39,7 +38,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
@@ -77,25 +76,27 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TestCase___Releases" sap:VirtualizedContainerService.HintSize="668.6666666666666,3778" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TestCase___Releases" sap:VirtualizedContainerService.HintSize="650,3020" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="606.6666666666666,114.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="588,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Sequence>
-    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="606.6666666666666,3346.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="588,2620" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
-        <Variable x:TypeArguments="ui:ProcessDto[]" Name="Processes" />
-        <Variable x:TypeArguments="ui:ReleaseDto[]" Name="Releases" />
+        <Variable x:TypeArguments="scg:List(ui:ProcessDto)" Name="Processes" />
+        <Variable x:TypeArguments="scg:List(ui:ReleaseDto)" Name="Releases" />
         <Variable x:TypeArguments="ui:ReleaseDto" Name="Release" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
@@ -103,34 +104,32 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="544.6666666666666,422" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="526,350" sap2010:WorkflowViewState.IdRef="CommentOut_2">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,340.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="492,264.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Processes\\Get Processes.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="400,218.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Flows\\Processes\\Get Processes.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Processes\\Get Processes.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Flows\\Processes\\Get Processes.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="Filter" />
-                <OutArgument x:TypeArguments="ui:ProcessDto[]" x:Key="Processes">
-                  <CSharpReference x:TypeArguments="ui:ProcessDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">Processes</CSharpReference>
-                </OutArgument>
+                <OutArgument x:TypeArguments="scg:List(ui:ProcessDto)" x:Key="Processes" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
         </ui:CommentOut.Body>
       </ui:CommentOut>
-      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="544.6666666666666,580" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="526,508" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,498.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="492,422.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\Releases\Create Release.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="400,376.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\Releases\\Create Release.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\Releases\Create Release.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,335.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\Releases\\Create Release.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder" />
                 <InArgument x:TypeArguments="x:String" x:Key="ReleaseName">
@@ -148,24 +147,24 @@
           </Sequence>
         </ui:CommentOut.Body>
       </ui:CommentOut>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Releases\\Get Releases.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="544.6666666666666,640" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Flows\\Releases\\Get Releases.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Releases\\Get Releases.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="526,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Flows\\Releases\\Get Releases.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="Filter" />
           <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder" />
-          <OutArgument x:TypeArguments="ui:ReleaseDto[]" x:Key="Releases">
-            <CSharpReference x:TypeArguments="ui:ReleaseDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Releases</CSharpReference>
+          <OutArgument x:TypeArguments="scg:List(ui:ReleaseDto)" x:Key="Releases">
+            <CSharpReference x:TypeArguments="scg:List(ui:ReleaseDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">Releases</CSharpReference>
           </OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="544.6666666666666,275.3333333333333" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="526,258" sap2010:WorkflowViewState.IdRef="CommentOut_3">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,194" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="492,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_7">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="400,72" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:ReleaseDto">
                   <CSharpReference x:TypeArguments="ui:ReleaseDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">Release</CSharpReference>
@@ -180,15 +179,15 @@
           </Sequence>
         </ui:CommentOut.Body>
       </ui:CommentOut>
-      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="544.6666666666666,632.6666666666666" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="526,560.6666666666666" sap2010:WorkflowViewState.IdRef="CommentOut_4">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,551.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="492,475.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Releases\\Edit Release.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="400,429.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Flows\\Releases\\Edit Release.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Releases\\Edit Release.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,388" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Flows\\Releases\\Edit Release.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InOutArgument x:TypeArguments="ui:ReleaseDto" x:Key="Release">
                   <CSharpReference x:TypeArguments="ui:ReleaseDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">Release</CSharpReference>
@@ -206,15 +205,15 @@
           </Sequence>
         </ui:CommentOut.Body>
       </ui:CommentOut>
-      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="544.6666666666666,474.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+      <ui:CommentOut DisplayName="Disabled activities" sap:VirtualizedContainerService.HintSize="526,402.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_5">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,393.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="492,317.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Releases\\Delete Release.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="400,271.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Flows\\Releases\\Delete Release.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tasks\\Releases\\Delete Release.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Flows\\Releases\\Delete Release.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder" />
                 <InArgument x:TypeArguments="ui:ReleaseDto" x:Key="Release">
@@ -226,7 +225,7 @@
         </ui:CommentOut.Body>
       </ui:CommentOut>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="606.6666666666666,114.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="588,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

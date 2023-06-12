@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Activity mc:Ignorable="sap sap2010" x:Class="Link_Queues_to_Folder___TestCase" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1044,980" sap2010:WorkflowViewState.IdRef="Link_Queues_to_Folder___TestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Link_Queues_to_Folder___TestCase" sap2010:Annotation.AnnotationText="UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="1357.3333333333333,1759.3333333333333" sap2010:WorkflowViewState.IdRef="Link_Queues_to_Folder___TestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -29,7 +28,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="37">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
@@ -67,9 +66,12 @@
       <AssemblyReference>System.ObjectModel</AssemblyReference>
       <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Link_Queues_to_Folder___TestCase" sap:VirtualizedContainerService.HintSize="463,915" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Link_Queues_to_Folder___TestCase" sap:VirtualizedContainerService.HintSize="574,1694.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:FolderDto" Name="Folder" />
     </Sequence.Variables>
@@ -78,13 +80,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="421,152" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="... Given" sap:VirtualizedContainerService.HintSize="512,196" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="ui:FolderDto">
             <CSharpReference x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">Folder</CSharpReference>
@@ -97,54 +99,63 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="421,508" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence DisplayName="... When" sap:VirtualizedContainerService.HintSize="512,1203.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <Sequence.Variables>
-        <Variable x:TypeArguments="ui:QueueDefinitionDto[]" Name="Queues" />
-        <Variable x:TypeArguments="ui:FolderDto[]" Name="FoldersToLink" />
+        <Variable x:TypeArguments="scg:List(ui:QueueDefinitionDto)" Name="Queues" />
+        <Variable x:TypeArguments="scg:List(ui:FolderDto)" Name="FoldersToLink" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Queue Definitions workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Flows\\QueueDefinitions\\Get Queue Definitions.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Queue Definitions workflow" sap:VirtualizedContainerService.HintSize="450,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Flows\\QueueDefinitions\\Get Queue Definitions.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="Filter">
-            <Literal x:TypeArguments="x:String">Name eq 'TestQueue2'</Literal>
-          </InArgument>
-          <OutArgument x:TypeArguments="ui:QueueDefinitionDto[]" x:Key="QueueDefinitions">
-            <CSharpReference x:TypeArguments="ui:QueueDefinitionDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">Queues</CSharpReference>
+          <InArgument x:TypeArguments="x:String" x:Key="Filter">Name eq 'TestQueue2'</InArgument>
+          <OutArgument x:TypeArguments="scg:List(ui:QueueDefinitionDto)" x:Key="QueueDefinitions">
+            <CSharpReference x:TypeArguments="scg:List(ui:QueueDefinitionDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">Queues</CSharpReference>
           </OutArgument>
           <InArgument x:TypeArguments="ui:FolderDto" x:Key="Folder">
             <CSharpValue x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">Folder</CSharpValue>
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Folders workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Flows\\Folders\\Get Folders.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Folders workflow" sap:VirtualizedContainerService.HintSize="450,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Flows\\Folders\\Get Folders.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:String" x:Key="Filter">
-            <Literal x:TypeArguments="x:String">FullyQualifiedName eq 'Development/TrevorTest'</Literal>
-          </InArgument>
-          <OutArgument x:TypeArguments="ui:FolderDto[]" x:Key="Folders">
-            <CSharpReference x:TypeArguments="ui:FolderDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">FoldersToLink</CSharpReference>
+          <InArgument x:TypeArguments="x:String" x:Key="Filter">FullyQualifiedName eq 'Development/Test2'</InArgument>
+          <OutArgument x:TypeArguments="scg:List(ui:FolderDto)" x:Key="Folders">
+            <CSharpReference x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">FoldersToLink</CSharpReference>
           </OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Link Queues to Folders workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\QueueDefinitions\\Link Queues to Folders.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Link Queues to Folders workflow" sap:VirtualizedContainerService.HintSize="450,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Flows\\QueueDefinitions\\Link Queues to Folders.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="ui:QueueDefinitionDto[]" x:Key="Queues">
-            <CSharpValue x:TypeArguments="ui:QueueDefinitionDto[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">Queues</CSharpValue>
+          <InArgument x:TypeArguments="scg:List(ui:QueueDefinitionDto)" x:Key="Queues">
+            <CSharpValue x:TypeArguments="scg:List(ui:QueueDefinitionDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">Queues</CSharpValue>
           </InArgument>
-          <InArgument x:TypeArguments="ui:FolderDto[]" x:Key="ToRemoveFolders">
-            <CSharpValue x:TypeArguments="ui:FolderDto[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">new FolderDto[] {}</CSharpValue>
+          <InArgument x:TypeArguments="scg:List(ui:FolderDto)" x:Key="ToRemoveFolders">
+            <CSharpValue x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">new List&lt;FolderDto&gt;()</CSharpValue>
           </InArgument>
-          <InArgument x:TypeArguments="ui:FolderDto[]" x:Key="ToAddFolders">
-            <CSharpValue x:TypeArguments="ui:FolderDto[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">FoldersToLink</CSharpValue>
+          <InArgument x:TypeArguments="scg:List(ui:FolderDto)" x:Key="ToAddFolders">
+            <CSharpValue x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">FoldersToLink</CSharpValue>
+          </InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Link Queues to Folders workflow" sap:VirtualizedContainerService.HintSize="450,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Flows\\QueueDefinitions\\Link Queues to Folders.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="scg:List(ui:QueueDefinitionDto)" x:Key="Queues">
+            <CSharpValue x:TypeArguments="scg:List(ui:QueueDefinitionDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">Queues</CSharpValue>
+          </InArgument>
+          <InArgument x:TypeArguments="scg:List(ui:FolderDto)" x:Key="ToRemoveFolders">
+            <CSharpValue x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">FoldersToLink</CSharpValue>
+          </InArgument>
+          <InArgument x:TypeArguments="scg:List(ui:FolderDto)" x:Key="ToAddFolders">
+            <CSharpValue x:TypeArguments="scg:List(ui:FolderDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">new List&lt;FolderDto&gt;()</CSharpValue>
           </InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
-    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="421,83" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence DisplayName="... Then" sap:VirtualizedContainerService.HintSize="512,104.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
