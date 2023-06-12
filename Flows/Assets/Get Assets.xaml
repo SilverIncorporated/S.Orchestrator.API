@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="OData filter string used as a query parameter. If you don’t provide a Filter, then you need to provide a Folder. Otherwise, you will receive ALL assets…" Name="Filter" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="The Folder where you want to search for the Asset. If you don’t provide a Folder, then you need to provide a Filter. Otherwise, you will receive ALL assets…" Name="Folder" Type="InArgument(ui:FolderDto)" />
-    <x:Property sap2010:Annotation.AnnotationText="The Assets returned by the API." Name="Assets" Type="OutArgument(ui:AssetDto[])">
+    <x:Property sap2010:Annotation.AnnotationText="The Assets returned by the API." Name="Assets" Type="OutArgument(scg:List(ui:AssetDto))">
       <x:Property.Attributes>
         <RequiredArgumentAttribute />
       </x:Property.Attributes>
@@ -13,7 +13,7 @@
   </this:Get_Assets.Folder>
   <sap2010:Annotation.AnnotationText>UPTF00000194eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL3RxbC1ycGEuYXRsYXNzaWFuLm5ldFwvd2lraVwvc3BhY2VzXC9SUEFcL3BhZ2VzXC8yNjczOTQ4OVwvUlBBLTM3OSstK09yY2hlc3RyYXRvcitMb2NhbCstK0xpYnJhcnkjR2V0LUFzc2V0cyIsIjxJbml0aWFsVG9vbHRpcD5rX19CYWNraW5nRmllbGQiOiJNYWtlcyBhIEdFVCByZXF1ZXN0IHRvIHRoZSBBc3NldHMgZW5kcG9pbnQgYW5kIHJldHVybnMgYWxsIEFzc2V0cyBtYXRjaGluZyB0aGUgRmlsdGVyLiIsIjxWZXJzaW9uPmtfX0JhY2tpbmdGaWVsZCI6MX0=</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>941,1018</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,1387.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -95,9 +95,11 @@
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Makes a GET request to the Assets endpoint and returns all Assets matching the Filter." DisplayName="Get_Assets" sap:VirtualizedContainerService.HintSize="526,953" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Makes a GET request to the Assets endpoint and returns all Assets matching the Filter." DisplayName="Get_Assets" sap:VirtualizedContainerService.HintSize="546,1322.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EntityEndpoint" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Queries">
@@ -113,14 +115,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">"Orchestrator Local: Getting Assets..."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">EntityEndpoint</CSharpReference>
@@ -130,14 +132,14 @@
         <InArgument x:TypeArguments="x:String">/odata/Assets/UiPath.Server.Configuration.OData.GetFiltered</InArgument>
       </Assign.Value>
     </Assign>
-    <If sap:VirtualizedContainerService.HintSize="484,247" sap2010:WorkflowViewState.IdRef="If_1">
+    <If sap:VirtualizedContainerService.HintSize="484,269.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Filter != null</CSharpValue>
         </InArgument>
       </If.Condition>
       <If.Then>
-        <Assign DisplayName="Assign Filter" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign DisplayName="Assign Filter" sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">
               <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">Queries["$filter"]</CSharpReference>
@@ -160,7 +162,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="484,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="484,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">EntityEndpoint</CSharpValue>
@@ -176,22 +178,22 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign DisplayName="Deserialize assets" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Deserialize Assets" sap:VirtualizedContainerService.HintSize="484,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
-        <OutArgument x:TypeArguments="ui:AssetDto[]">
-          <CSharpReference x:TypeArguments="ui:AssetDto[]" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">Assets</CSharpReference>
+        <OutArgument x:TypeArguments="scg:List(ui:AssetDto)">
+          <CSharpReference x:TypeArguments="scg:List(ui:AssetDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">Assets</CSharpReference>
         </OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="ui:AssetDto[]">
-          <CSharpValue x:TypeArguments="ui:AssetDto[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">JsonConvert.DeserializeObject&lt;AssetDto[]&gt;(EntityJson)</CSharpValue>
+        <InArgument x:TypeArguments="scg:List(ui:AssetDto)">
+          <CSharpValue x:TypeArguments="scg:List(ui:AssetDto)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">JsonConvert.DeserializeObject&lt;List&lt;AssetDto&gt;&gt;(EntityJson)</CSharpValue>
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
-          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">"Orchestrator Local: " + Assets.Count().ToString() + " assets returned."</CSharpValue>
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">"Orchestrator Local: " + Assets.Count + " assets returned."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
