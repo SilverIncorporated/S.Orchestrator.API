@@ -3,7 +3,6 @@
   "Tooltip": null,
   "HelpLink": null,
   "Color": null,
-  "IconRelativePath": null,
   "OriginalIconFileName": null,
   "Arguments": [
     {
@@ -11,18 +10,33 @@
       "DisplayName": "in_Queries",
       "Category": null,
       "Tooltip": null,
+      "Placeholder": null,
       "Widget": null,
       "IsRequired": false,
-      "IsPrincipal": true
+      "IsPrincipal": true,
+      "DataSourceItems": null
     },
     {
-      "Name": "io_Endpoint",
-      "DisplayName": "io_Endpoint",
+      "Name": "in_Endpoint",
+      "DisplayName": "in_Endpoint",
       "Category": null,
       "Tooltip": null,
+      "Placeholder": null,
       "Widget": null,
       "IsRequired": false,
-      "IsPrincipal": true
+      "IsPrincipal": true,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "out_EndpointWithQueries",
+      "DisplayName": "out_EndpointWithQueries",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": null,
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "DataSourceItems": null
     }
   ]
 }

@@ -7,10 +7,10 @@
   </x:Members>
   <sap2010:Annotation.AnnotationText>UPTF00000088eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8SW5pdGlhbFRvb2x0aXA+a19fQmFja2luZ0ZpZWxkIjpudWxsLCI8VmVyc2lvbj5rX19CYWNraW5nRmllbGQiOjF9</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>766.6666666666666,2441.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,3311.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="31">
+    <scg:List x:TypeArguments="x:String" Capacity="62">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -42,10 +42,13 @@
       <x:String>System.Dynamic</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="44">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="88">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
@@ -90,9 +93,14 @@
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Get_Entity_Paginated" sap:VirtualizedContainerService.HintSize="604.6666666666666,2376.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Get_Entity_Paginated" sap:VirtualizedContainerService.HintSize="740,3246.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="OdataCount" />
       <Variable x:TypeArguments="x:Int32" Name="Count" />
@@ -103,14 +111,14 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562.6666666666666,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="678,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Orchestrator Local: Getting paginated from endpoint: " + in_EntityEndpoint + ((in_Folder != null) ? (" in the " + in_Folder.DisplayName + " folder using Orchestrator API") : (" using Orchestrator API in current folder."))</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <Assign DisplayName="Assign Count" sap:VirtualizedContainerService.HintSize="562.6666666666666,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Assign Count" sap:VirtualizedContainerService.HintSize="678,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">
           <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">Count</CSharpReference>
@@ -120,7 +128,7 @@
         <InArgument x:TypeArguments="x:Int32">0</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign Take" sap:VirtualizedContainerService.HintSize="562.6666666666666,62" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign DisplayName="Assign Take" sap:VirtualizedContainerService.HintSize="678,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_26">in_Queries["$top"]</CSharpReference>
@@ -130,7 +138,7 @@
         <InArgument x:TypeArguments="x:String">1000</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign JArray" sap:VirtualizedContainerService.HintSize="562.6666666666666,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign DisplayName="Assign JArray" sap:VirtualizedContainerService.HintSize="678,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JArray">
           <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_20">JArray</CSharpReference>
@@ -142,18 +150,22 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="562.6666666666666,1607.3333333333333" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="678,2265.3333333333335" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="460,1438" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="644,2127.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="njl:JObject" Name="JObject" />
+            <Variable x:TypeArguments="x:String" Name="FinishedEndpoint" />
+            <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Headers" />
+            <Variable x:TypeArguments="x:Int32" Name="StatusCode" />
+            <Variable x:TypeArguments="x:Int32" Name="LoopCount" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign Skip" sap:VirtualizedContainerService.HintSize="418,62" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign DisplayName="Assign Skip" sap:VirtualizedContainerService.HintSize="602,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">
                 <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">in_Queries["$skip"]</CSharpReference>
@@ -165,86 +177,120 @@
               </InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Add Queries workflow" sap:VirtualizedContainerService.HintSize="418,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Add Queries.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Add Queries workflow" sap:VirtualizedContainerService.HintSize="602,230" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Add Queries.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Queries">
                 <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">in_Queries</CSharpValue>
               </InArgument>
-              <InOutArgument x:TypeArguments="x:String" x:Key="io_Endpoint">
-                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_25">in_EntityEndpoint</CSharpReference>
-              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_Endpoint">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">in_EntityEndpoint</CSharpValue>
+              </InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_EndpointWithQueries">
+                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_27">FinishedEndpoint</CSharpReference>
+              </OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:RetryScope DisplayName="Retry Scope - Create Entity" sap:VirtualizedContainerService.HintSize="418,445.3333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
-            <ui:RetryScope.ActivityBody>
-              <ActivityAction>
-                <Sequence DisplayName="Create Entity" sap:VirtualizedContainerService.HintSize="376,268" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:Int32" Name="StatusCode" />
-                    <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Headers" />
-                  </Sequence.Variables>
+          <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="602,840" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+            <ui:InterruptibleDoWhile.Body>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,702" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:OrchestratorHttpRequest JSONPayload="{x:Null}" TimeoutMS="{x:Null}" DisplayName="GET" sap:VirtualizedContainerService.HintSize="526,249.33333333333334" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_1" Method="GET">
+                  <ui:OrchestratorHttpRequest.FolderPath>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_Folder == null ? null : in_Folder.FullyQualifiedName</CSharpValue>
+                    </InArgument>
+                  </ui:OrchestratorHttpRequest.FolderPath>
+                  <ui:OrchestratorHttpRequest.RelativeEndpoint>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">FinishedEndpoint</CSharpValue>
+                    </InArgument>
+                  </ui:OrchestratorHttpRequest.RelativeEndpoint>
+                  <ui:OrchestratorHttpRequest.ResponseHeaders>
+                    <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
+                      <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Headers</CSharpReference>
+                    </OutArgument>
+                  </ui:OrchestratorHttpRequest.ResponseHeaders>
+                  <ui:OrchestratorHttpRequest.Result>
+                    <OutArgument x:TypeArguments="x:String">
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">out_EntityJson</CSharpReference>
+                    </OutArgument>
+                  </ui:OrchestratorHttpRequest.Result>
+                  <ui:OrchestratorHttpRequest.StatusCode>
+                    <OutArgument x:TypeArguments="x:Int32">
+                      <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">StatusCode</CSharpReference>
+                    </OutArgument>
+                  </ui:OrchestratorHttpRequest.StatusCode>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:OrchestratorHttpRequest JSONPayload="{x:Null}" TimeoutMS="{x:Null}" DisplayName="GET" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="OrchestratorHttpRequest_1" Method="GET">
-                    <ui:OrchestratorHttpRequest.FolderPath>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_Folder == null ? null : in_Folder.FullyQualifiedName</CSharpValue>
-                      </InArgument>
-                    </ui:OrchestratorHttpRequest.FolderPath>
-                    <ui:OrchestratorHttpRequest.RelativeEndpoint>
-                      <InArgument x:TypeArguments="x:String">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_EntityEndpoint</CSharpValue>
-                      </InArgument>
-                    </ui:OrchestratorHttpRequest.RelativeEndpoint>
-                    <ui:OrchestratorHttpRequest.ResponseHeaders>
-                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
-                        <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">Headers</CSharpReference>
-                      </OutArgument>
-                    </ui:OrchestratorHttpRequest.ResponseHeaders>
-                    <ui:OrchestratorHttpRequest.Result>
-                      <OutArgument x:TypeArguments="x:String">
-                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">out_EntityJson</CSharpReference>
-                      </OutArgument>
-                    </ui:OrchestratorHttpRequest.Result>
-                    <ui:OrchestratorHttpRequest.StatusCode>
-                      <OutArgument x:TypeArguments="x:Int32">
-                        <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">StatusCode</CSharpReference>
-                      </OutArgument>
-                    </ui:OrchestratorHttpRequest.StatusCode>
-                  </ui:OrchestratorHttpRequest>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Check Response workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Actions\\Check Response.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:Int32" x:Key="in_StatusCode">
-                        <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">StatusCode</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Method">GET</InArgument>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Headers">
-                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">Headers</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_Response">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">out_EntityJson</CSharpValue>
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
-                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">in_EntityEndpoint</CSharpValue>
-                      </InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                </Sequence>
-              </ActivityAction>
-            </ui:RetryScope.ActivityBody>
-            <ui:RetryScope.Condition>
-              <ActivityFunc x:TypeArguments="x:Boolean" />
-            </ui:RetryScope.Condition>
-            <ui:RetryScope.RetryInterval>
-              <InArgument x:TypeArguments="x:TimeSpan">
-                <CSharpValue x:TypeArguments="x:TimeSpan" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">new TimeSpan(0,0,5)</CSharpValue>
-              </InArgument>
-            </ui:RetryScope.RetryInterval>
-          </ui:RetryScope>
-          <Assign DisplayName="Get JObject from response" sap:VirtualizedContainerService.HintSize="418,62" sap2010:WorkflowViewState.IdRef="Assign_13">
+                </ui:OrchestratorHttpRequest>
+                <If sap:VirtualizedContainerService.HintSize="526,325.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If.Condition>
+                    <InArgument x:TypeArguments="x:Boolean">
+                      <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">LoopCount &gt; 3</CSharpValue>
+                    </InArgument>
+                  </If.Condition>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="492,141.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Check Response workflow" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Actions\\Check Response.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_StatusCode">
+                            <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">StatusCode</CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Method">GET</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Headers">
+                            <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">Headers</CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_Response">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_39">out_EntityJson</CSharpValue>
+                          </InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_40">in_EntityEndpoint</CSharpValue>
+                          </InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7" />
+                  </If.Else>
+                </If>
+              </Sequence>
+            </ui:InterruptibleDoWhile.Body>
+            <ui:InterruptibleDoWhile.Condition>
+              <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_41">StatusCode != 200</CSharpValue>
+            </ui:InterruptibleDoWhile.Condition>
+            <ui:InterruptibleDoWhile.CurrentIndex>
+              <OutArgument x:TypeArguments="x:Int32">
+                <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_28">LoopCount</CSharpReference>
+              </OutArgument>
+            </ui:InterruptibleDoWhile.CurrentIndex>
+          </ui:InterruptibleDoWhile>
+          <Assign DisplayName="Get JObject from response" sap:VirtualizedContainerService.HintSize="602,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
             <Assign.To>
               <OutArgument x:TypeArguments="njl:JObject">
                 <CSharpReference x:TypeArguments="njl:JObject" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">JObject</CSharpReference>
@@ -256,7 +302,7 @@
               </InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign count from Odata" sap:VirtualizedContainerService.HintSize="418,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+          <Assign DisplayName="Assign count from Odata" sap:VirtualizedContainerService.HintSize="602,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">
                 <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">OdataCount</CSharpReference>
@@ -268,7 +314,7 @@
               </InArgument>
             </Assign.Value>
           </Assign>
-          <ui:InvokeCode ContinueOnError="{x:Null}" Code="JArray.Merge(JsonConvert.DeserializeObject&lt;JArray&gt;(JObject.GetValue(&quot;value&quot;).ToString()));" DisplayName="Invoke code - Merge JArrays" sap:VirtualizedContainerService.HintSize="418,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="JArray.Merge(JsonConvert.DeserializeObject&lt;JArray&gt;(JObject.GetValue(&quot;value&quot;).ToString()));" DisplayName="Invoke code - Merge JArrays" sap:VirtualizedContainerService.HintSize="602,204" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
             <ui:InvokeCode.Arguments>
               <InOutArgument x:TypeArguments="njl:JArray" x:Key="JArray">
                 <CSharpReference x:TypeArguments="njl:JArray" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">JArray</CSharpReference>
@@ -278,7 +324,7 @@
               </InArgument>
             </ui:InvokeCode.Arguments>
           </ui:InvokeCode>
-          <Assign sap:VirtualizedContainerService.HintSize="418,62" sap2010:WorkflowViewState.IdRef="Assign_15">
+          <Assign sap:VirtualizedContainerService.HintSize="602,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">
                 <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">Count</CSharpReference>
@@ -290,7 +336,7 @@
               </InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="418,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="602,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
             <ui:LogMessage.Message>
               <InArgument x:TypeArguments="x:Object">
                 <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">"Retrieved " + Count.ToString() + " of " + OdataCount.ToString() + " items..."</CSharpValue>
@@ -303,7 +349,7 @@
         <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">Count &lt; OdataCount</CSharpValue>
       </ui:InterruptibleDoWhile.Condition>
     </ui:InterruptibleDoWhile>
-    <Assign DisplayName="Set Out Json" sap:VirtualizedContainerService.HintSize="562.6666666666666,62" sap2010:WorkflowViewState.IdRef="Assign_16">
+    <Assign DisplayName="Set Out Json" sap:VirtualizedContainerService.HintSize="678,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">out_EntityJson</CSharpReference>
@@ -315,7 +361,7 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562.6666666666666,94.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="678,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">"Orchestrator Local: " + in_EntityEndpoint + " entities returned from " + ((in_Folder != null) ? (" in " + in_Folder.DisplayName + ".") : ("."))</CSharpValue>
