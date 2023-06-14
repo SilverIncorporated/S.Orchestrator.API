@@ -12,6 +12,7 @@
     </x:Property>
     <x:Property sap2010:Annotation.AnnotationText="An array of QueueItemDtoStatus values. This is used to filter the Queue Items returned by the activity. By default, New and InProgress statuses are included; provide your own array of values to overwrite the default." Name="Statuses" Type="InArgument(ui:QueueItemDtoStatus[])" />
     <x:Property sap2010:Annotation.AnnotationText="DateTime used to filter results received based on what time and date they were processed." Name="StartProcessingDate" Type="InArgument(s:Nullable(s:DateTime))" />
+    <x:Property Name="Filter" Type="InArgument(x:String)" />
   </x:Members>
   <this:Get_Queue_Items.Statuses>
     <InArgument x:TypeArguments="ui:QueueItemDtoStatus[]">
@@ -20,7 +21,7 @@
   </this:Get_Queue_Items.Statuses>
   <sap2010:Annotation.AnnotationText>UPTF000001B4eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL3RxbC1ycGEuYXRsYXNzaWFuLm5ldFwvd2lraVwvc3BhY2VzXC9SUEFcL3BhZ2VzXC8yNjczOTQ4OVwvUlBBLTM3OSstK09yY2hlc3RyYXRvcitMb2NhbCstK0xpYnJhcnkjR2V0LVF1ZXVlLUl0ZW1zIiwiPEluaXRpYWxUb29sdGlwPmtfX0JhY2tpbmdGaWVsZCI6Ik1ha2VzIGEgR0VUIHJlcXVlc3QgdG8gdGhlIFF1ZXVlSXRlbXMgZW5kcG9pbnQgYW5kIHJldHVybnMgYWxsIFF1ZXVlSXRlbXMgbWF0Y2hpbmcgdGhlIGRlY2xhcmVkIHN0YXR1c2VzLiIsIjxWZXJzaW9uPmtfX0JhY2tpbmdGaWVsZCI6MX0=</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,2976.6666666666665</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,3123.3333333333335</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -98,7 +99,7 @@
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Makes a GET request to the QueueItems endpoint and returns all QueueItems matching the declared statuses." DisplayName="Get_Queue_Items" sap:VirtualizedContainerService.HintSize="853.3333333333334,2912" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Makes a GET request to the QueueItems endpoint and returns all QueueItems matching the declared statuses." DisplayName="Get_Queue_Items" sap:VirtualizedContainerService.HintSize="853.3333333333334,3058.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EntityEndpoint" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Queries">
@@ -107,7 +108,7 @@
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="x:String" Name="EntityJson" />
-      <Variable x:TypeArguments="x:String" Name="Filter" />
+      <Variable x:TypeArguments="x:String" Name="FilterText" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -115,14 +116,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="791.3333333333334,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="791.3333333333334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Orchestrator Local: Getting Queue Items..."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <If sap2010:Annotation.AnnotationText="Warn the user that they are asking for EVERY queue item regardless of Status and Date." DisplayName="Check inputs" sap:VirtualizedContainerService.HintSize="791.3333333333334,370.6666666666667" sap2010:WorkflowViewState.IdRef="If_2">
+    <If sap2010:Annotation.AnnotationText="Warn the user that they are asking for EVERY queue item regardless of Status and Date." DisplayName="Check inputs" sap:VirtualizedContainerService.HintSize="791.3333333333334,374" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">(Statuses == null || Statuses == Array.Empty&lt;QueueItemDtoStatus&gt;()) &amp; (StartProcessingDate == null)</CSharpValue>
@@ -136,7 +137,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn">
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn">
           <ui:LogMessage.Message>
             <InArgument x:TypeArguments="x:Object">
               <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"Orchestrator Local: Statuses and FromDate are not set; you will receive EVERY queue item from the specified queue."</CSharpValue>
@@ -154,7 +155,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">EntityEndpoint</CSharpReference>
@@ -164,10 +165,10 @@
         <InArgument x:TypeArguments="x:String">/odata/QueueItems</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
-          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">Filter</CSharpReference>
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">FilterText</CSharpReference>
         </OutArgument>
       </Assign.To>
       <Assign.Value>
@@ -176,7 +177,7 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <Flowchart DisplayName="Build Filter" sap:VirtualizedContainerService.HintSize="791.3333333333334,1081.3333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart DisplayName="Build Filter" sap:VirtualizedContainerService.HintSize="791.3333333333334,1216.6666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <Flowchart.Variables>
         <Variable x:TypeArguments="x:String" Name="SubQueryString" />
         <Variable x:TypeArguments="x:Int32" Name="idx" />
@@ -188,14 +189,14 @@
           <av:Point x:Key="ShapeLocation">40,12.5</av:Point>
           <av:Size x:Key="ShapeSize">60,74.66666666666667</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">70,87.16666666666667 70,126.66666666666666</av:PointCollection>
-          <x:Double x:Key="Height">1044</x:Double>
-          <x:Double x:Key="Width">757</x:Double>
+          <x:Double x:Key="Height">1179.4133333333332</x:Double>
+          <x:Double x:Key="Width">747.9999999999998</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID7</x:Reference>
+        <x:Reference>__ReferenceID9</x:Reference>
       </Flowchart.StartNode>
-      <FlowDecision x:Name="__ReferenceID7" DisplayName="Statuses is empty Array?" sap:VirtualizedContainerService.HintSize="134,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+      <FlowDecision x:Name="__ReferenceID9" DisplayName="Statuses is empty Array?" sap:VirtualizedContainerService.HintSize="134.66666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
         <FlowDecision.Condition>
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_43">Statuses.Length == 0</CSharpValue>
         </FlowDecision.Condition>
@@ -203,7 +204,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <av:Point x:Key="ShapeLocation">2.6666666666666714,126.66666666666666</av:Point>
-            <av:Size x:Key="ShapeSize">134,86.66666666666667</av:Size>
+            <av:Size x:Key="ShapeSize">134.66666666666666,86.66666666666667</av:Size>
             <av:PointCollection x:Key="FalseConnector">137.33333333333331,170 193,170</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -212,19 +213,19 @@
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <av:Point x:Key="ShapeLocation">193,112</av:Point>
-                <av:Size x:Key="ShapeSize">434,115.33333333333333</av:Size>
+                <av:Size x:Key="ShapeSize">434,116</av:Size>
                 <av:PointCollection x:Key="ConnectorLocation">410,228 410,252.00000000000003</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap2010:Annotation.AnnotationText="{}{Filter} and (" DisplayName="Assign" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
+            <Assign sap2010:Annotation.AnnotationText="{}{Filter} and (" DisplayName="Assign" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_15">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">
-                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">Filter</CSharpReference>
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_24">FilterText</CSharpReference>
                 </OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">
-                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">Filter + " and ("</CSharpValue>
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_44">FilterText + " and ("</CSharpValue>
                 </InArgument>
               </Assign.Value>
               <sap:WorkflowViewStateService.ViewState>
@@ -238,11 +239,11 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">193,252.00000000000003</av:Point>
-                    <av:Size x:Key="ShapeSize">434,115.33333333333333</av:Size>
+                    <av:Size x:Key="ShapeSize">434,116</av:Size>
                     <av:PointCollection x:Key="ConnectorLocation">410,368 410,400.3333333333333</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ((" DisplayName="Assign" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
+                <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ((" DisplayName="Assign" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_16">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">
                       <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_31">SubQueryString</CSharpReference>
@@ -262,36 +263,36 @@
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">310,400.3333333333333</av:Point>
-                        <av:Size x:Key="ShapeSize">200,97.33333333333333</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">410,497.66666666666663 410,532</av:PointCollection>
+                        <av:Size x:Key="ShapeSize">200,99.33333333333333</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">410,499.66666666666663 410,532</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ForEach x:TypeArguments="ui:QueueItemDtoStatus" sap2010:Annotation.AnnotationText="{}{Filter} and ((Status eq '{status}'..." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,97.33333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_5">
+                    <ui:ForEach x:TypeArguments="ui:QueueItemDtoStatus" sap2010:Annotation.AnnotationText="{}{Filter} and ((Status eq '{status}'..." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="200,99.33333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_5">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="ui:QueueItemDtoStatus">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:QueueItemDtoStatus" Name="status" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="695,402" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,444" sap2010:WorkflowViewState.IdRef="Sequence_15">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <If sap:VirtualizedContainerService.HintSize="653,310" sap2010:WorkflowViewState.IdRef="If_6">
+                            <If sap:VirtualizedContainerService.HintSize="526,356.6666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                               <If.Condition>
                                 <InArgument x:TypeArguments="x:Boolean">
                                   <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">idx == 0</CSharpValue>
                                 </InArgument>
                               </If.Condition>
                               <If.Then>
-                                <Sequence DisplayName="idx = 0" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <Sequence DisplayName="idx = 0" sap:VirtualizedContainerService.HintSize="492,172.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                  <Assign sap:VirtualizedContainerService.HintSize="450,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">
                                         <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_32">SubQueryString</CSharpReference>
@@ -351,11 +352,11 @@
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">193,532</av:Point>
-                            <av:Size x:Key="ShapeSize">434,115.33333333333333</av:Size>
+                            <av:Size x:Key="ShapeSize">434,116</av:Size>
                             <av:PointCollection x:Key="ConnectorLocation">410,647.3333333333334 410,677.3333333333333 80,677.3333333333333 80,716.6666666666666</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ((Status eq '{status}' ...)" DisplayName="Assign" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
+                        <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ((Status eq '{status}' ...)" DisplayName="Assign" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_19">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">
                               <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">SubQueryString</CSharpReference>
@@ -373,7 +374,7 @@
                           </sap:WorkflowViewStateService.ViewState>
                         </Assign>
                         <FlowStep.Next>
-                          <FlowDecision x:Name="__ReferenceID5" DisplayName="StartProcessingDate is null?" sap:VirtualizedContainerService.HintSize="151.33333333333334,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+                          <FlowDecision x:Name="__ReferenceID5" DisplayName="StartProcessingDate is null?" sap:VirtualizedContainerService.HintSize="150,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                             <FlowDecision.Condition>
                               <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_50">StartProcessingDate == null</CSharpValue>
                             </FlowDecision.Condition>
@@ -381,8 +382,8 @@
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <av:Point x:Key="ShapeLocation">4.333333333333329,716.6666666666666</av:Point>
-                                <av:Size x:Key="ShapeSize">151.33333333333334,86.66666666666667</av:Size>
-                                <av:PointCollection x:Key="FalseConnector">155.66666666666669,760 193,760</av:PointCollection>
+                                <av:Size x:Key="ShapeSize">150,86.66666666666667</av:Size>
+                                <av:PointCollection x:Key="FalseConnector">154.33333333333331,760 184.33333333333331,760 184.33333333333331,761 193,761</av:PointCollection>
                                 <av:PointCollection x:Key="TrueConnector">4.333333333333329,760 0,760 0,852.3333333333333 410,852.3333333333333 410,882.3333333333334</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -394,11 +395,11 @@
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">193,695.6666666666666</av:Point>
-                                    <av:Size x:Key="ShapeSize">434,128.66666666666666</av:Size>
-                                    <av:PointCollection x:Key="ConnectorLocation">410,824.3333333333333 410,882.3333333333334</av:PointCollection>
+                                    <av:Size x:Key="ShapeSize">434,130.66666666666666</av:Size>
+                                    <av:PointCollection x:Key="ConnectorLocation">410,826.3333333333333 410,882.3333333333334</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ((Status eq '{status}' ...) and StartProcessing gt {StartProcessingDate}" sap:VirtualizedContainerService.HintSize="434,128.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ((Status eq '{status}' ...) and StartProcessing gt {StartProcessingDate}" sap:VirtualizedContainerService.HintSize="434,130.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_20">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">
                                       <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_36">SubQueryString</CSharpReference>
@@ -420,18 +421,19 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">193,882.3333333333334</av:Point>
-                                        <av:Size x:Key="ShapeSize">434,115.33333333333333</av:Size>
+                                        <av:Size x:Key="ShapeSize">434,116</av:Size>
+                                        <av:PointCollection x:Key="ConnectorLocation">193,940.3333333333334 87,940.3333333333334 87,996.6666666666667</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ({SubQueryString})" DisplayName="Finish the Filter" sap:VirtualizedContainerService.HintSize="434,115.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
+                                    <Assign sap2010:Annotation.AnnotationText="{}{Filter} and ({SubQueryString})" DisplayName="Finish the Filter" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_21">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">
-                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_37">Filter</CSharpReference>
+                                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_37">FilterText</CSharpReference>
                                         </OutArgument>
                                       </Assign.To>
                                       <Assign.Value>
                                         <InArgument x:TypeArguments="x:String">
-                                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">Filter + SubQueryString + ")"</CSharpValue>
+                                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_52">FilterText + SubQueryString + ")"</CSharpValue>
                                         </InArgument>
                                       </Assign.Value>
                                       <sap:WorkflowViewStateService.ViewState>
@@ -440,6 +442,48 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </Assign>
+                                    <FlowStep.Next>
+                                      <FlowDecision x:Name="__ReferenceID7" DisplayName="Filter Not Given?" sap:VirtualizedContainerService.HintSize="92.66666666666667,86.66666666666667" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+                                        <FlowDecision.Condition>
+                                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_61">string.IsNullOrWhiteSpace(Filter)</CSharpValue>
+                                        </FlowDecision.Condition>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <av:Point x:Key="ShapeLocation">40.66666666666666,996.6666666666667</av:Point>
+                                            <av:Size x:Key="ShapeSize">92.66666666666667,86.66666666666667</av:Size>
+                                            <av:PointCollection x:Key="FalseConnector">133.33333333333331,1040 410,1040 410,1067.3333333333333</av:PointCollection>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <FlowDecision.False>
+                                          <FlowStep x:Name="__ReferenceID8">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:Point x:Key="ShapeLocation">193,1067.3333333333333</av:Point>
+                                                <av:Size x:Key="ShapeSize">434,85.33333333333333</av:Size>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign DisplayName="Add Filter" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_23">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">
+                                                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">FilterText</CSharpReference>
+                                                </OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">
+                                                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_59">FilterText + " and " + Filter</CSharpValue>
+                                                </InArgument>
+                                              </Assign.Value>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Assign>
+                                          </FlowStep>
+                                        </FlowDecision.False>
+                                      </FlowDecision>
+                                    </FlowStep.Next>
                                   </FlowStep>
                                 </FlowStep.Next>
                               </FlowStep>
@@ -462,8 +506,10 @@
       <x:Reference>__ReferenceID5</x:Reference>
       <x:Reference>__ReferenceID6</x:Reference>
       <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID7</x:Reference>
+      <x:Reference>__ReferenceID8</x:Reference>
     </Flowchart>
-    <Assign DisplayName="Add Filter to Queries Dictionary" sap:VirtualizedContainerService.HintSize="791.3333333333334,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_12">
+    <Assign DisplayName="Add Filter to Queries Dictionary" sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">Queries["$filter"]</CSharpReference>
@@ -471,11 +517,11 @@
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">
-          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">Filter</CSharpValue>
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">FilterText</CSharpValue>
         </InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Add OrderBy to Queries Dictionary" sap:VirtualizedContainerService.HintSize="791.3333333333334,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_22">
+    <Assign DisplayName="Add OrderBy to Queries Dictionary" sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_22">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_38">Queries["$orderby"]</CSharpReference>
@@ -485,7 +531,7 @@
         <InArgument x:TypeArguments="x:String">EndProcessing desc</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="791.3333333333334,279.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="791.3333333333334,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">EntityEndpoint</CSharpValue>
@@ -499,7 +545,7 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,84.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_14">
+    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(ui:QueueItemDto)">
           <CSharpReference x:TypeArguments="scg:List(ui:QueueItemDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">QueueItems</CSharpReference>
