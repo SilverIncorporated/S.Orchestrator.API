@@ -13,15 +13,19 @@
     <x:Property sap2010:Annotation.AnnotationText="An array of QueueItemDtoStatus values. This is used to filter the Queue Items returned by the activity. By default, New and InProgress statuses are included; provide your own array of values to overwrite the default." Name="Statuses" Type="InArgument(ui:QueueItemDtoStatus[])" />
     <x:Property sap2010:Annotation.AnnotationText="DateTime used to filter results received based on what time and date they were processed." Name="StartProcessingDate" Type="InArgument(s:Nullable(s:DateTime))" />
     <x:Property Name="Filter" Type="InArgument(x:String)" />
+    <x:Property Name="Folder" Type="InArgument(ui:FolderDto)" />
   </x:Members>
   <this:Get_Queue_Items.Statuses>
     <InArgument x:TypeArguments="ui:QueueItemDtoStatus[]">
       <CSharpValue x:TypeArguments="ui:QueueItemDtoStatus[]" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">new QueueItemDtoStatus[]{QueueItemDtoStatus.InProgress,QueueItemDtoStatus.New}</CSharpValue>
     </InArgument>
   </this:Get_Queue_Items.Statuses>
+  <this:Get_Queue_Items.Folder>
+    <InArgument x:TypeArguments="ui:FolderDto" />
+  </this:Get_Queue_Items.Folder>
   <sap2010:Annotation.AnnotationText>UPTF000001B4eyI8SGVscExpbms+a19fQmFja2luZ0ZpZWxkIjoiaHR0cHM6XC9cL3RxbC1ycGEuYXRsYXNzaWFuLm5ldFwvd2lraVwvc3BhY2VzXC9SUEFcL3BhZ2VzXC8yNjczOTQ4OVwvUlBBLTM3OSstK09yY2hlc3RyYXRvcitMb2NhbCstK0xpYnJhcnkjR2V0LVF1ZXVlLUl0ZW1zIiwiPEluaXRpYWxUb29sdGlwPmtfX0JhY2tpbmdGaWVsZCI6Ik1ha2VzIGEgR0VUIHJlcXVlc3QgdG8gdGhlIFF1ZXVlSXRlbXMgZW5kcG9pbnQgYW5kIHJldHVybnMgYWxsIFF1ZXVlSXRlbXMgbWF0Y2hpbmcgdGhlIGRlY2xhcmVkIHN0YXR1c2VzLiIsIjxWZXJzaW9uPmtfX0JhY2tpbmdGaWVsZCI6MX0=</sap2010:Annotation.AnnotationText>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,3123.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1357.3333333333333,3124.6666666666665</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -99,7 +103,7 @@
       <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Makes a GET request to the QueueItems endpoint and returns all QueueItems matching the declared statuses." DisplayName="Get_Queue_Items" sap:VirtualizedContainerService.HintSize="853.3333333333334,3058.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Makes a GET request to the QueueItems endpoint and returns all QueueItems matching the declared statuses." DisplayName="Get_Queue_Items" sap:VirtualizedContainerService.HintSize="844,3060" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EntityEndpoint" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Queries">
@@ -116,14 +120,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="791.3333333333334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="782,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Orchestrator Local: Getting Queue Items..."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <If sap2010:Annotation.AnnotationText="Warn the user that they are asking for EVERY queue item regardless of Status and Date." DisplayName="Check inputs" sap:VirtualizedContainerService.HintSize="791.3333333333334,374" sap2010:WorkflowViewState.IdRef="If_2">
+    <If sap2010:Annotation.AnnotationText="Warn the user that they are asking for EVERY queue item regardless of Status and Date." DisplayName="Check inputs" sap:VirtualizedContainerService.HintSize="782,374" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Condition>
         <InArgument x:TypeArguments="x:Boolean">
           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">(Statuses == null || Statuses == Array.Empty&lt;QueueItemDtoStatus&gt;()) &amp; (StartProcessingDate == null)</CSharpValue>
@@ -155,7 +159,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="782,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">EntityEndpoint</CSharpReference>
@@ -165,7 +169,7 @@
         <InArgument x:TypeArguments="x:String">/odata/QueueItems</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign sap:VirtualizedContainerService.HintSize="782,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">FilterText</CSharpReference>
@@ -177,7 +181,7 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <Flowchart DisplayName="Build Filter" sap:VirtualizedContainerService.HintSize="791.3333333333334,1216.6666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart DisplayName="Build Filter" sap:VirtualizedContainerService.HintSize="782,1216.6666666666667" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <Flowchart.Variables>
         <Variable x:TypeArguments="x:String" Name="SubQueryString" />
         <Variable x:TypeArguments="x:Int32" Name="idx" />
@@ -509,7 +513,7 @@
       <x:Reference>__ReferenceID7</x:Reference>
       <x:Reference>__ReferenceID8</x:Reference>
     </Flowchart>
-    <Assign DisplayName="Add Filter to Queries Dictionary" sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+    <Assign DisplayName="Add Filter to Queries Dictionary" sap:VirtualizedContainerService.HintSize="782,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_21">Queries["$filter"]</CSharpReference>
@@ -521,7 +525,7 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Add OrderBy to Queries Dictionary" sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_22">
+    <Assign DisplayName="Add OrderBy to Queries Dictionary" sap:VirtualizedContainerService.HintSize="782,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_22">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">
           <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_38">Queries["$orderby"]</CSharpReference>
@@ -531,12 +535,14 @@
         <InArgument x:TypeArguments="x:String">EndProcessing desc</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="791.3333333333334,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Entity Paginated workflow" sap:VirtualizedContainerService.HintSize="782,282.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Actions\\Get Entity Paginated.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">EntityEndpoint</CSharpValue>
         </InArgument>
-        <InArgument x:TypeArguments="ui:FolderDto" x:Key="in_Folder" />
+        <InArgument x:TypeArguments="ui:FolderDto" x:Key="in_Folder">
+          <CSharpValue x:TypeArguments="ui:FolderDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">Folder</CSharpValue>
+        </InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_Queries">
           <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Queries</CSharpValue>
         </InArgument>
@@ -545,7 +551,7 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="791.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
+    <Assign sap:VirtualizedContainerService.HintSize="782,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(ui:QueueItemDto)">
           <CSharpReference x:TypeArguments="scg:List(ui:QueueItemDto)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_23">QueueItems</CSharpReference>
@@ -557,7 +563,7 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="791.3333333333334,143.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="782,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_55">"Ochestrator Local: " + QueueItems.Count + " Queue Items returned."</CSharpValue>
