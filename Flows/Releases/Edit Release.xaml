@@ -11,7 +11,7 @@
     <x:Property Name="Folder" Type="InArgument(ui:FolderDto)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>1574,1727.3333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1555.3333333333333,1891.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -46,36 +46,36 @@
   <TextExpression.ReferencesForImplementation>
     <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
-      <AssemblyReference>System.Activities</AssemblyReference>
-      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
-      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
-      <AssemblyReference>System.Data</AssemblyReference>
-      <AssemblyReference>System</AssemblyReference>
-      <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
-      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
-      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
-      <AssemblyReference>System.ObjectModel</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
-      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
-      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
-      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
-      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="this activity creates a new queue in the specified folder. If no folder is provided, then it creates one in the current folder." DisplayName="Create_Release" sap:VirtualizedContainerService.HintSize="696,1662.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+  <Sequence sap2010:Annotation.AnnotationText="this activity creates a new queue in the specified folder. If no folder is provided, then it creates one in the current folder." DisplayName="Create_Release" sap:VirtualizedContainerService.HintSize="863.3333333333334,1826.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="EntityEndpoint" />
       <Variable x:TypeArguments="x:String" Name="ReleaseJson" />
@@ -86,22 +86,23 @@
         <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="634,151.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="801.3333333333334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Orchestrator Local: Editing Release..."</CSharpValue>
         </InArgument>
       </ui:LogMessage.Message>
     </ui:LogMessage>
-    <Flowchart DisplayName="Set Release Values" sap:VirtualizedContainerService.HintSize="634,682" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart DisplayName="Set Release Values" sap:VirtualizedContainerService.HintSize="801.3333333333334,870" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <av:Point x:Key="ShapeLocation">20,12.666666666666664</av:Point>
           <av:Size x:Key="ShapeSize">60,74.66666666666667</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">50,87.33333333333334 50,117.33333333333333 270,117.33333333333333 270,136.66666666666666</av:PointCollection>
-          <x:Double x:Key="Height">636</x:Double>
+          <av:PointCollection x:Key="ConnectorLocation">80,50 360,50 360,66.66666666666666</av:PointCollection>
+          <x:Double x:Key="Height">832.6666666666667</x:Double>
+          <x:Double x:Key="Width">767.3333333333333</x:Double>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
@@ -114,10 +115,10 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <av:Point x:Key="ShapeLocation">216,136.66666666666666</av:Point>
+            <av:Point x:Key="ShapeLocation">306,66.66666666666666</av:Point>
             <av:Size x:Key="ShapeSize">108,86.66666666666667</av:Size>
-            <av:PointCollection x:Key="TrueConnector">216,180 120,180 120,216.66666666666666</av:PointCollection>
-            <av:PointCollection x:Key="FalseConnector">324,180 430,180 430,406.6666666666667</av:PointCollection>
+            <av:PointCollection x:Key="TrueConnector">306,110 300,110 300,186.66666666666666</av:PointCollection>
+            <av:PointCollection x:Key="FalseConnector">414,110 610,110 610,406.6666666666667</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <FlowDecision.True>
@@ -128,25 +129,25 @@
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <av:Point x:Key="ShapeLocation">78,216.66666666666666</av:Point>
+                <av:Point x:Key="ShapeLocation">258,186.66666666666666</av:Point>
                 <av:Size x:Key="ShapeSize">84,86.66666666666667</av:Size>
-                <av:PointCollection x:Key="TrueConnector">78,260 0,260 0,350 29,350</av:PointCollection>
-                <av:PointCollection x:Key="FalseConnector">162,260 190,260</av:PointCollection>
+                <av:PointCollection x:Key="TrueConnector">258,230 217,230 217,334</av:PointCollection>
+                <av:PointCollection x:Key="FalseConnector">342,230 370,230 370,225.66666666666669</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <FlowDecision.True>
               <FlowStep x:Name="__ReferenceID2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">29,314</av:Point>
-                    <av:Size x:Key="ShapeSize">262,72</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">291,350 430,350 430,406.6666666666667</av:PointCollection>
+                    <av:Point x:Key="ShapeLocation">0,334</av:Point>
+                    <av:Size x:Key="ShapeSize">434,85.33333333333333</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">434,376.6666666666667 583.5,376.6666666666667 583.5,406.6666666666667</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="262,72" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">
-                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">Release.ProcessVersion</CSharpReference>
+                      <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">Release.ProcessVersion</CSharpReference>
                     </OutArgument>
                   </Assign.To>
                   <Assign.Value>
@@ -168,22 +169,22 @@
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <av:Point x:Key="ShapeLocation">377,406.6666666666667</av:Point>
+                        <av:Point x:Key="ShapeLocation">557,406.6666666666667</av:Point>
                         <av:Size x:Key="ShapeSize">106,86.66666666666667</av:Size>
-                        <av:PointCollection x:Key="TrueConnector">377,450 341,450</av:PointCollection>
-                        <av:PointCollection x:Key="FalseConnector">483,450 500,450 500,536.6666666666666</av:PointCollection>
+                        <av:PointCollection x:Key="TrueConnector">557,450 220,450 220,517.3333333333334</av:PointCollection>
+                        <av:PointCollection x:Key="FalseConnector">663,450 700,450 700,626.6666666666666</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <FlowDecision.True>
                       <FlowStep x:Name="__ReferenceID5">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">79,414</av:Point>
-                            <av:Size x:Key="ShapeSize">262,72</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">210,486 210,516 500,516 500,536.6666666666666</av:PointCollection>
+                            <av:Point x:Key="ShapeLocation">3,517.3333333333334</av:Point>
+                            <av:Size x:Key="ShapeSize">434,85.33333333333333</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">437,560 700,560 700,626.6666666666666</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <Assign sap:VirtualizedContainerService.HintSize="262,72" sap2010:WorkflowViewState.IdRef="Assign_9">
+                        <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">
                               <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">Release.Name</CSharpReference>
@@ -208,20 +209,20 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <av:Point x:Key="ShapeLocation">432.6666666666667,536.6666666666666</av:Point>
+                                <av:Point x:Key="ShapeLocation">632.6666666666666,626.6666666666666</av:Point>
                                 <av:Size x:Key="ShapeSize">134.66666666666666,86.66666666666667</av:Size>
-                                <av:PointCollection x:Key="TrueConnector">432.6666666666667,580 391,580</av:PointCollection>
+                                <av:PointCollection x:Key="TrueConnector">632.6666666666666,670 220,670 220,747.3333333333334</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <FlowDecision.True>
                               <FlowStep x:Name="__ReferenceID6">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">129,544</av:Point>
-                                    <av:Size x:Key="ShapeSize">262,72</av:Size>
+                                    <av:Point x:Key="ShapeLocation">3,747.3333333333334</av:Point>
+                                    <av:Size x:Key="ShapeSize">434,85.33333333333333</av:Size>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="262,72" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                <Assign sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:String">
                                       <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">Release.Description</CSharpReference>
@@ -255,11 +256,11 @@
               <FlowStep x:Name="__ReferenceID4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">190,228.66666666666669</av:Point>
-                    <av:Size x:Key="ShapeSize">200,62.666666666666664</av:Size>
+                    <av:Point x:Key="ShapeLocation">370,198.66666666666669</av:Point>
+                    <av:Size x:Key="ShapeSize">200,54</av:Size>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw sap:VirtualizedContainerService.HintSize="200,62.666666666666664" sap2010:WorkflowViewState.IdRef="Throw_1">
+                <Throw sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="Throw_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -285,7 +286,7 @@
       <x:Reference>__ReferenceID6</x:Reference>
       <x:Reference>__ReferenceID0</x:Reference>
     </Flowchart>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Actions\\Edit Entity.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="634,324" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Edit Entity.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Actions\\Edit Entity.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="801.3333333333334,311.3333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Actions\\Edit Entity.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_EntityEndpoint">
           <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">EntityEndpoint</CSharpValue>
@@ -298,19 +299,19 @@
         </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="634,72" sap2010:WorkflowViewState.IdRef="Assign_11">
+    <Assign sap:VirtualizedContainerService.HintSize="801.3333333333334,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
       <Assign.To>
         <OutArgument x:TypeArguments="ui:ReleaseDto">
-          <CSharpReference x:TypeArguments="ui:ReleaseDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">Release</CSharpReference>
+          <CSharpReference x:TypeArguments="ui:ReleaseDto" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">Release</CSharpReference>
         </OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="ui:ReleaseDto">
-          <CSharpValue x:TypeArguments="ui:ReleaseDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">JsonConvert.DeserializeObject&lt;ReleaseDto&gt;(ReleaseJson)</CSharpValue>
+          <CSharpValue x:TypeArguments="ui:ReleaseDto" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">JsonConvert.DeserializeObject&lt;ReleaseDto&gt;(ReleaseJson)</CSharpValue>
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="634,151.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="801.3333333333334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
       <ui:LogMessage.Message>
         <InArgument x:TypeArguments="x:Object">
           <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">"Orchestrator Local: Release Edited."</CSharpValue>

@@ -1,17 +1,18 @@
 {
   "name": "S.Orchestrator.API",
+  "projectId": "255e7b09-4fe4-478c-923b-b17f8cbc028c",
   "description": "Orchestrator API Wrapper for all orchestrator api functions",
   "main": "NewActivity.xaml",
   "dependencies": {
-    "UiPath.System.Activities": "23.4.3",
-    "UiPath.Testing.Activities": "23.4.1",
-    "UiPath.WebAPI.Activities": "1.16.2"
+    "UiPath.System.Activities": "23.10.3",
+    "UiPath.Testing.Activities": "23.10.0",
+    "UiPath.WebAPI.Activities": "1.18.0"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.4.6.0",
-  "projectVersion": "1.1.0",
+  "projectVersion": "1.2.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -120,7 +121,8 @@
         "fileName": "Flows\\Releases\\TestCase - Releases.xaml"
       }
     ],
-    "modernBehavior": false
+    "modernBehavior": false,
+    "saveToCloud": false
   },
   "expressionLanguage": "CSharp",
   "isTemplate": false,
